@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Калькулятор</title>
+    <style>
+        .calculator {
+            border: 1px solid #000;
+            width: 1200px;
+            padding: 20px;
+        }
+        .calculator input[type="text"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            text-align: right;
+        }
+        .calculator button {
+            width: 50px;
+            height: 50px;
+            margin: 2px;
+            font-size: 18px;
+        }
+        .calculator .equals {
+            height: 106px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="calculator">
+    <input type="text" id="display" disabled>
+    <br>
+    <button onclick="calculator.clearDisplay()">C</button>
+    <button onclick="calculator.backspace()">⌫</button>
+    <button onclick="calculator.operate('%')">%</button>
+    <button onclick="calculator.operate('/')">/</button>
+    <br>
+    <button onclick="calculator.appendNumber(7)">7</button>
+    <button onclick="calculator.appendNumber(8)">8</button>
+    <button onclick="calculator.appendNumber(9)">9</button>
+    <button onclick="calculator.operate('*')">*</button>
+    <br>
+    <button onclick="calculator.appendNumber(4)">4</button>
+    <button onclick="calculator.appendNumber(5)">5</button>
+    <button onclick="calculator.appendNumber(6)">6</button>
+    <button onclick="calculator.operate('-')">-</button>
+    <br>
+    <button onclick="calculator.appendNumber(1)">1</button>
+    <button onclick="calculator.appendNumber(2)">2</button>
+    <button onclick="calculator.appendNumber(3)">3</button>
+    <button onclick="calculator.operate('+')">+</button>
+    <br>
+    <button onclick="calculator.appendNumber(0)">0</button>
+    <button onclick="calculator.appendDot()">.</button>
+    <button onclick="calculator.sqrt()">√</button>
+    <button onclick="calculator.power()">x^y</button>
+    <br>
+    <button class="equals" onclick="calculator.calculate()">=</button>
+</div>
+
+<script>
+    (function() {
+        const display = document.getElementById('display');
+        let currentOperation = '';
+        let operand1 = '';
+        let operand2 = '';
+        let operator = '';
+
+        window.calculator = {
+            appendNumber: function(number) {
+                if (currentOperation) {
+                    currentOperation = '';
+                    display.value = '';
+                }
+                display.value += number;
+            },
+            appendDot: function() {
+                if (!display.value.includes('.')) {
+                    display.value += '.';
+                }
+            },
+            clearDisplay: function() {
+                display.value = '';
+                currentOperation = '';
+                operand1 = '';
+                operand2 = '';
+                operator = '';
+            },
+            backspace: function() {
+                display.value = display.value.slice(0, -1);
+            },
+            operate: function(op) {
+                if (display.value) {
+                    operand1 = display.value;
+                    operator = op;
+                    display.value = '';
+                }
+            },
+            sqrt: function() {
+                if (display.value) {
+                    display.value = Math.sqrt(parseFloat(display.value));
+                }
+            },
+            power: function() {
+                if (display.value) {
+                    operand1 = display.value;
+                    operator = '^';
+                    display.value = '';
+                }
+            },
+            calculate: function() {
+                if (display.value) {
+                    operand2 = display.value;
+                    let result = 0;
+                    switch (operator) {
+                        case '+':
+                            result = parseFloat(operand1) + parseFloat(operand2);
+                            break;
+                        case '-':
+                            result = parseFloat(operand1) - parseFloat(operand2);
+                            break;
+                        case '*':
+                            result = parseFloat(operand1) * parseFloat(operand2);
+                            break;
+                        case '/':
+                            result = parseFloat(operand1) / parseFloat(operand2);
+                            break;
+                        case '%':
+                            result = parseFloat(operand1) % parseFloat(operand2);
+                            break;
+                        case '^':
+                            result = Math.pow(parseFloat(operand1), parseFloat(operand2));
+                            break;
+                    }
+                    display.value = result;
+                    currentOperation = 'calculate';
+                }
+            }
+        };
+    })();
+</script>
+
+</body>
+</html>

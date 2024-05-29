@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change Background Color</title>
+    <style>
+        .widget {
+            text-align: center;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="widget">
+        <p>Background color: <span class="color">#ffffff</span></p>
+        <button type="button" class="change-color">Change color</button>
+    </div>
+
+    <script>
+        function getRandomHexColor() {
+            return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0')}`;
+        }
+
+        document.querySelector('.change-color').addEventListener('click', () => {
+            const newColor = getRandomHexColor();
+            document.body.style.backgroundColor = newColor;
+            document.querySelector('.color').textContent = newColor;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,238 @@
+<body>
+    <section class="inserted__title">
+
+        <h2>
+            Завдання
+        </h2>
+    </section>
+    <section class="inserted__content">
+        <p>1. Напишіть наступні функції:
+            createProduct(obj, callback) - приймає об'єкт товару без id, а також коллбек. Функція створює об'єкт товару,
+            додаючи йому унікальний ідентифікатор у властивість id та викликає коллбек передаючи йому створений об'єкт.
+            logProduct(product) - колббек що приймає об'єкт продукту і логуючий його в консоль
+            logTotalPrice(product) - колббек, що приймає об'єкт продукту і логіює загальну вартість товару в консоль
+        </p>
+       
+        <pre class="prettyprint">
+                function createProduct(obj, callback) {
+                    // Генеруємо унікальний ідентифікатор (можна використовувати будь-який метод
+                    генерації унікальних ідентифікаторів)
+                    obj.id = Math.random().toString(36).substr(2, 9);
+                    // Викликаємо колбек з новоствореним об'єктом товару
+                    callback(obj);
+                }
+                
+                function logProduct(product) {
+                    console.log("Product:", product);
+                }
+                
+                function logTotalPrice(product) {
+                    if (product.price && product.quantity) {
+                        const totalPrice = product.price * product.quantity;
+                        console.log("Total Price:", totalPrice);
+                    } else {
+                        console.log("Product price or quantity is missing.");
+                    }
+                }
+                
+                // Приклад використання:
+                const newProduct = {
+                    name: "Sample Product",
+                    price: 100,
+                    quantity: 2
+                };
+                
+                createProduct(newProduct, logProduct);
+                createProduct(newProduct, logTotalPrice);
+                </pre>
+       
+        <p>
+            3. З об'єкту medicines потрібно отримати масив в якому будуть лише назви препаратів.
+            З масиву потрібно прибрати медикаменти , в яких строк зберігання уже пройшов . У новому масиві відсортувати
+            медикаменти у хронологічному порядку.
+            Результат вивести у консоль.
+            Застосувати стрілочні функції
+
+            <code>const medicines = {
+            Агалгін: new Date("2022-05-01"),
+            Ношпа: new Date("2025-07-02"),
+            Альфахолін: new Date("2024-12-21"),
+            Аспірин: new Date("2022-08-15"),
+            Аспаркам: new Date("2024-04-18"),
+           };</code>
+
+        </p>
+        <pre class="prettyprint">
+            const medicines = {
+                Агалгін: new Date("2022-05-01"),
+                Ношпа: new Date("2025-07-02"),
+                Альфахолін: new Date("2024-12-21"),
+                Аспірин: new Date("2022-08-15"),
+                Аспаркам: new Date("2024-04-18"),
+            };
+            
+            // Отримуємо масив назв медикаментів з об'єкту
+            const medicineNames = Object.keys(medicines);
+            
+            // Відфільтровуємо медикаменти, у яких строк зберігання уже пройшов
+            const currentDate = new Date();
+            const validMedicines = medicineNames.filter(name => medicines[name] > currentDate);
+            
+            // Сортуємо медикаменти у хронологічному порядку
+            const sortedMedicines = validMedicines.sort((a, b) => medicines[a] - medicines[b]);
+            
+            // Виводимо результат у консоль
+            console.log(sortedMedicines);
+            </pre>
+
+        <p>
+            5. Напишіть функцію, яка приймає массив об'єктів і повертає новий массив Зробіть знижку 20 % на всі фрукти у
+            масиві Надайте ід для кожного продукту const fruits = [
+            { name: "apple", price: 200 },
+            { name: "orange", price: 300 },
+            { name: "grapes", price: 750 },
+            ];
+
+        </p>
+        <pre class="prettyprint">
+            const fruits = [
+            { name: "apple", price: 200 },
+            { name: "orange", price: 300 },
+            { name: "grapes", price: 750 },
+          ];
+          
+          const applyDiscountAndAssignId = (fruits) => {
+            return fruits.map((fruit, index) => ({
+              ...fruit,
+              price: fruit.price * 0.8,
+              id: index + 1,
+            }));
+          };
+          
+          const updatedFruits = applyDiscountAndAssignId(fruits);
+          console.log(updatedFruits);
+          </pre>
+        <p>7. Напиши клас Client який створює об'єкт
+            з властивостями login email
+            Оголоси приватні властивості #login #email,
+            доступ до яких зроби через геттер та сеттер login email
+
+        </p>
+        <pre class="prettyprint">
+            class Client {
+                #login;
+                #email;
+              
+                constructor(login, email) {
+                  this.#login = login;
+                  this.#email = email;
+                }
+              
+                // Геттер для login
+                get login() {
+                  return this.#login;
+                }
+              
+                // Сеттер для login
+                set login(newLogin) {
+                  this.#login = newLogin;
+                }
+              
+                // Геттер для email
+                get email() {
+                  return this.#email;
+                }
+              
+                // Сеттер для email
+                set email(newEmail) {
+                  this.#email = newEmail;
+                }
+              }
+              
+              // Приклад використання
+              const client = new Client("user123", "user123@example.com");
+              console.log(client.login); // Виведе: user123
+              console.log(client.email); // Виведе: user123@example.com
+              
+              client.login = "newUser456";
+              client.email = "newUser456@example.com";
+              
+              console.log(client.login); // Виведе: newUser456
+              console.log(client.email); // Виведе: newUser456@example.com
+              
+           } </pre>
+        <p>9. Поверніть об'єкт, в якому вказано кількість тегів.
+            Очікуваний результат {js: 3, nodejs: 3, html: 2, css: 2, react: 2}
+
+            const tweets = [
+            { id: "000", likes: 5, tags: ["js", "nodejs"] },
+            { id: "001", likes: 2, tags: ["html", "css"] },
+            { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+            { id: "003", likes: 8, tags: ["css", "react"] },
+            { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+            ];
+
+        </p>
+
+        <pre class="prettyprint">
+            const tweets = [
+            { id: "000", likes: 5, tags: ["js", "nodejs"] },
+            { id: "001", likes: 2, tags: ["html", "css"] },
+            { id: "002", likes: 17, tags: ["html", "js", "nodejs"] },
+            { id: "003", likes: 8, tags: ["css", "react"] },
+            { id: "004", likes: 0, tags: ["js", "nodejs", "react"] },
+          ];
+          
+          const countTags = (tweets) => {
+            return tweets.reduce((acc, tweet) => {
+              tweet.tags.forEach(tag => {
+                acc[tag] = (acc[tag] || 0) + 1;
+              });
+              return acc;
+            }, {});
+          };
+          
+          const tagCounts = countTags(tweets);
+          console.log(tagCounts);
+          </pre>
+        <p>10.Напишіть функцію checkBrackets(str) яка приймає рядок жс коду (someFn) і 
+            перевіряє правильність закриття
+            дужок () {} []
+            Якщо рядок містить коректний код функція повертає true.
+            В іншому випадку повертає false
+        </p>
+        <pre class="prettyprint">function checkBrackets(str) {
+            const stack = [];
+            const brackets = {
+              '(': ')',
+              '{': '}',
+              '[': ']'
+            };
+          
+            for (let char of str) {
+              if (brackets[char]) {
+                // Якщо символ є відкриваючою дужкою, додаємо його до стеку
+                stack.push(char);
+              } else if (Object.values(brackets).includes(char)) {
+                // Якщо символ є закриваючою дужкою, перевіряємо стек
+                if (stack.length === 0 || brackets[stack.pop()] !== char) {
+                  return false;
+                }
+              }
+            }
+          
+            // Після проходження всього рядка стек повинен бути порожнім
+            return stack.length === 0;
+          }
+          
+          // Приклад використання
+          console.log(checkBrackets("function someFn() { return [1, 2, 3]; }")); 
+          // Виведе: true
+          console.log(checkBrackets("function someFn() { return [1, 2, 3; }")); 
+          // Виведе: false
+          console.log(checkBrackets("function someFn() { if (true) { console.log('Hello'); }")); 
+          // Виведе: false
+          </pre>
+    </section>
+
+</body>

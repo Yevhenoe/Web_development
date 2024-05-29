@@ -1,0 +1,99 @@
+{
+    "data": {
+        "labs": {
+            "lb1": {
+                "title": "Лаба1",
+                "rel_path": "./html/lab/lab_1/",
+                "buttons": {
+                    "topic_btn": {
+                        "title": "Тема, мета лаби №5",
+                        "html_file": "topic.html",
+                        "css_file": "topic.css"
+                    },
+                    "structure_btn": {
+                        "title": "Основне завдання",
+                        "html_file": "structure.html",
+                        "css_file": "structure.css"
+                    },
+                    "tables_btn": {
+                        "title": "Результат виконання",
+                        "html_file": "tables.html",
+                        "css_file": "tables.css"
+                    },
+                    "forms_btn": {
+                        "title": "Завдання №2",
+                        "html_file": "forms.html",
+                        "css_file": "forms.css"
+                    },
+                    "imgs_btn": {
+                        "title": "Реалізація",
+                        "html_file": "imgs.html",
+                        "css_file": "imgs.css"
+                    }
+                }
+            },
+            "lb2": {
+                "title": "Лаба2",
+                "rel_path": "./html/lab/lab_2/",
+                "buttons": {
+                    "topic_btn": {
+                        "title": "Тема, мета лаби №6",
+                        "html_file": "topic.html",
+                        "css_file": "topic.css"
+                    },
+                    "sd_btn": {
+                        "title": "ПОСТАНОВКА ЗАДАЧІ лабораторної роботи №6",
+                        "html_file": "zavdania.html",
+                        "css_file": "sd.css"
+                    },
+                    "2_tag_selector": {
+                        "title": "Завдання",
+                        "html_file": "tag_selector.html",
+                        "css_file": "tag_selector.css"
+                    },
+                    "2_id_selector": {
+                        "title": "Результати виконання",
+                        "html_file": "id_selector.html",
+                        "css_file": "id_selector.css"
+                    }
+                }
+            },
+            "lb3": {
+                "title": "Лаба3",
+                "rel_path": "./html/lab/lab_3/",
+                "buttons": {
+                    "topic_btn": {
+                        "title": "Тема, мета №7",
+                        "html_file": "topic.html",
+                        "css_file": "topic.css"
+                    },
+                    "3_sd": {
+                        "title": "Завдання 1",
+                        "html_file": "1.html",
+                        "css_file": "sd.css"
+                    },
+                    "3_my_site": {
+                        "title": "Завдання 3",
+                        "html_file": "3.html"
+                    },
+                    "4_my_site": {
+                        "title": "Завдання 5",
+                        "html_file": "5.html"
+                    },
+                    "5_my_site": {
+                        "title": "Завдання 7",
+                        "html_file": "7.html"
+                    },
+                    "6_my_site": {
+                        "title": "Завдання 8",
+                        "html_file": "8.html"
+                    },
+                    "8_my_site": {
+                        "title": "Завдання 10",
+                        "html_file": "10.html"
+                    }
+                }
+            }
+        }
+    }
+}

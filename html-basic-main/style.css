@@ -1,0 +1,178 @@
+@import url("https://fonts.cdnfonts.com/css/montserrat");
+@import url("./clean_style.css");
+.body {
+    background-color: #edf1d6;
+    font-family: "Montserrat";
+    color: #40513b;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+}
+p, li {
+    text-indent: 2em;
+    text-align: justify;
+    span{
+        text-indent: 0em;
+    }
+}
+
+.header {
+    font-size: large;
+    display: flex;
+    font-size: larger;
+    align-items: center;
+}
+.footer {
+    text-align: center;
+}
+.main {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    overflow-y: auto;
+   
+}
+a {
+    border-bottom: 1px dotted;
+}
+h1,
+h2,
+h3 {
+    font-weight: 700;
+}
+
+.header__help-button span {
+    color: #40513b;
+    font-size: 48px;
+    background-color: #edf1d6;
+}
+.header__help-button {
+    background-color: #edf1d6;
+}
+
+.header__title {
+    flex: 1 1 auto;
+    text-align: center;
+    height: 100%;
+}
+.title {
+    padding: 0.3%;
+}
+
+.image {
+    width: 3em;
+}
+
+.title__student {
+    padding-top: 0.7%;
+}
+.title__student span {
+    cursor: pointer;
+    border-bottom: 1px dotted;
+}
+.title__student .tooltip {
+    visibility: hidden;
+    padding: 0.4em 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 1.2em;
+    left: 85%;
+}
+
+.title__student:has(span:hover) .tooltip {
+    visibility: visible;
+}
+
+[class$="--bordered"] {
+    border: 1px solid #9dc08b;
+    border-radius: 5px;
+    margin: 0.5%;
+    padding: 0.5%;
+}
+.nav {
+    display: flex;
+}
+.nav--row {
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.nav--coll {
+    width: 20%;
+    flex-direction: column;
+}
+
+.nav-item {
+    background-color: #edf1d6;
+    border: 1px solid #9dc08b;
+    border-radius: 5px;
+    margin: 0.5em 0.3em;
+    flex: 1 1 auto;
+}
+.nav-item:hover {
+    background-color: #9dc08b;
+}
+
+.nav-item.active {
+    background-color: #9dc08b;
+}
+
+.aside-left {
+    padding: 1em;
+}
+.main-content {
+    flex: 1 1 70%;
+    height: 92%;
+    overflow-y: auto;
+    padding: 1em 2em;
+    .loading{
+        text-align:center;
+    }
+    pre{
+        border: 1px solid #9dc08b;
+        border-radius: 5px;
+        
+    }
+}
+.button {
+    background-color: inherit;
+    border-radius: 5px;
+    padding: 0.3em;
+    font-size: medium;
+    color: inherit;
+    height: 100%;
+    width: 100%;
+}
+#controls {
+    margin-bottom: 20px;
+}
+
+#boxes div {
+    margin-bottom: 10px;
+}
+.container {
+    display: inline-block;
+    padding: 10px;
+    background-color: #119d22;
+    border-radius: 8px;
+    width: 255px;
+}
+.button7{
+  text-decoration: none;
+  display: inline-block;
+  color: white;
+  padding: 20px 30px;
+  margin: 10px 20px;
+  border-radius: 10px;
+  font-family: 'Montserrat', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-image: linear-gradient(to right, #9EEFE1 0%, #4830F0 51%, #9EEFE1 100%);
+  background-size: 200% auto;
+  box-shadow: 0 0 20px rgba(0, 0, 0, .1);
+  transition: .5s;
+
+}

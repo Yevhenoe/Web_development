@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collection Creator</title>
+</head>
+<body>
+    <div id="controls">
+        <input type="number" min="1" max="100" step="1" id="amount-input"/>
+        <button type="button" id="create-btn">Create</button>
+        <button type="button" id="destroy-btn">Destroy</button>
+    </div>
+    <div id="boxes"></div>
+
+    <script>
+        function getRandomHexColor() {
+            return `#${Math.floor(Math.random() * 16777215).toString(16).padStart(6, 0)}`;
+        }
+
+        function createBoxes(amount) {
+            const boxesContainer = document.getElementById('boxes');
+            boxesContainer.innerHTML = ''; // Clear the container before adding new boxes
+            let size = 30;
+            for (let i = 0; i < amount; i++) {
+                const box = document.createElement('div');
+                box.style.width = `${size}px`;
+                box.style.height = `${size}px`;
+                box.style.backgroundColor = getRandomHexColor();
+                box.style.margin = '5px'; // Optional: to add some space between boxes
+                boxesContainer.appendChild(box);
+                size += 10;
+            }
+        }
+
+        function destroyBoxes() {
+            const boxesContainer = document.getElementById('boxes');
+            boxesContainer.innerHTML = ''; // Clear all boxes
+        }
+
+        document.getElementById('create-btn').addEventListener('click', () => {
+            const amount = parseInt(document.getElementById('amount-input').value);
+            if (amount >= 1 && amount <= 100) {
+                createBoxes(amount);
+            } else {
+                alert('Please enter a number between 1 and 100');
+            }
+            document.getElementById('amount-input').value = ''; // Clear the input
+        });
+
+        document.getElementById('destroy-btn').addEventListener('click', destroyBoxes);
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+.inserted__title h2,  
+.inserted__content h2{
+    text-align: center;
+    padding: 1em 0;
+}
+
+.inserted__content {
+    p {
+        text-align: justify;
+    }
+    ul li {
+        list-style-type: "-";
+    }
+
+    li {
+        display: list-item;
+        padding: 0.5em 2em;
+        text-align: justify;
+    }
+}

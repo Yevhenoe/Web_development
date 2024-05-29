@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+</head>
+<body>
+    <form class="login-form">
+        <label>
+            Email
+            <input type="email" name="email" />
+        </label>
+        <label>
+            Password
+            <input type="password" name="password" />
+        </label>
+        <button type="submit">Log in</button>
+    </form>
+
+    <script>
+        function init() {
+            function handleLoginForm(event) {
+                event.preventDefault(); // Запобігає перезавантаженню сторінки
+
+                const formElements = event.target.elements;
+                const email = formElements.email.value.trim();
+                const password = formElements.password.value.trim();
+
+                if (email === '' || password === '') {
+                    alert('All form fields must be filled in');
+                    return;
+                }
+
+                const formData = {
+                    email: email,
+                    password: password
+                };
+
+                console.log(`Email: ${formData.email}`);
+                console.log(`Password: ${formData.password}`);
+
+                event.target.reset(); // Очищення форми
+            }
+
+            document.querySelector('.login-form').addEventListener('submit', handleLoginForm);
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>

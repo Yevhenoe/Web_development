@@ -1,0 +1,73 @@
+<body>
+  <section class="inserted__title">
+    <h2>Основне завдання:</h2>
+  </section>
+  <section class="inserted__content">
+    <p>
+      1. Створити одновимірний масив, кількість елементів якого задана користувачем.
+          Знайти суму елементів з парними індексами, максимальний елемент та його
+          індекс, мінімальний елемент та його індекс серед елементів з непарними
+          індексами.<br>
+      2. Упорядкувати масив у порядку зростання, Надрукувати вхідний та вихідний
+      масив.
+      Застосувати функції</p><br>
+    <pre class="prettyprint lang-js">
+      function processArray(n) {
+        // Створення масиву з випадковими числами від 1 до 100
+        let arr = [];
+        for (let i = 0; i < n; i++) {
+            arr.push(Math.floor(Math.random() * 100) + 1);
+        }
+    
+        // Друк вхідного масиву
+        console.log("Вхідний масив: ", arr);
+    
+        // Знайти суму елементів з парними індексами
+        let sumEvenIndices = 0;
+        for (let i = 0; i < arr.length; i += 2) {
+            sumEvenIndices += arr[i];
+        }
+    
+        // Знайти максимальний елемент та його індекс
+        let maxElement = arr[0];
+        let maxIndex = 0;
+        for (let i = 1; i < arr.length; i++) {
+            if (arr[i] > maxElement) {
+                maxElement = arr[i];
+                maxIndex = i;
+            }
+        }
+    
+        // Знайти мінімальний елемент та його індекс серед елементів з непарними індексами
+        let minElement = arr[1];
+        let minIndex = 1;
+        for (let i = 3; i < arr.length; i += 2) {
+            if (arr[i] < minElement) {
+                minElement = arr[i];
+                minIndex = i;
+            }
+        }
+    
+        // Друк результатів
+        console.log("Сума елементів з парними індексами: ", sumEvenIndices);
+        console.log("Максимальний елемент: ", maxElement, ", індекс: ", maxIndex);
+        console.log("Мінімальний елемент серед елементів з непарними індексами: ", 
+        minElement, ", індекс: ", minIndex);
+    
+        // Сортування масиву за зростанням
+        let sortedArr = arr.slice().sort((a, b) => a - b);
+    
+        // Друк відсортованого масиву
+        console.log("Відсортований масив: ", sortedArr);
+    }
+    
+    // Приклад виклику функції з масивом з 10 елементів
+    processArray(10);
+    
+    </pre>
+    <p>
+      <br>
+     
+    </p>
+  </section>
+</body>

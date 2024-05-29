@@ -1,0 +1,60 @@
+.inserted__title {
+    padding-bottom: 1%;
+}
+.inserted__content {
+    text-align: left;
+    line-height: 1.5;
+    p,
+    ul {
+        padding-bottom: 1%;
+    }
+    .demo__button,
+    form_button {
+        font-size: inherit;
+        margin-left: 1%;
+        border: 1px solid #9dc08b;
+        width: 10em;
+    }
+    .demo__checkbox {
+        font-size: inherit;
+        margin-left: 1%;
+    }
+    .demo__label {
+        font-size: inherit;
+        margin-left: 1%;
+        line-height: 1;
+    }
+    .example-form {
+        border: 2px solid #9dc08b;
+        border-radius: 5px;
+        padding: 1%;
+        width: max-content;
+        height: max-content;
+        font-size: inherit;
+
+        fieldset {
+            height: 12em;
+            width: 20em;
+            border: 2px solid #9dc08b;
+            border-radius: 5px;
+            padding: 2%;
+            display: grid;
+            gap: 10% 5%;
+            grid-template-columns: 3% 92%;
+            .form__button {
+                grid-column: 2;
+                font-size: inherit;
+                margin-left: 1%;
+                border: 1px solid #9dc08b;
+                width: 7em;
+                justify-self: end;
+                cursor: pointer;
+            }
+        }
+        input {
+            font-size: inherit;
+            padding: 0.3%;
+            border-radius: 5px;
+        }
+    }
+}

@@ -1,0 +1,31 @@
+.inserted__title  {
+    text-align: center;
+    h2{
+        padding-bottom: 1%;
+    }
+}
+.inserted__content {
+    padding-top: 3%;
+    text-align: justify;
+    p {
+        padding: 0.5em;
+    }
+    div {
+        color: red;
+       }
+       div {
+        color: green;
+       }
+       div {
+        color: blue;
+       }
+       #only-one {
+        background-color: red;
+    }
+    .usualy-div {
+        background-color: green;
+    }
+    div {
+        background-color: blue;
+    }
+}
